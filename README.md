@@ -1,4 +1,4 @@
-# Super Simple Alpha Example of Mura as a Headless CMS
+# Super Simple Alpha Example of using Mura as a Headless CMS
 This is just an example to build upon and in no way represents best practice. You most like would use a web component framework like React.js or Vue.js with Mura.js rather than vanilla js.
 
 ## For this to work:
