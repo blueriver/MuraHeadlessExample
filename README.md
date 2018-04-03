@@ -11,10 +11,10 @@ Edit the js/app.js to use your site's siteID and rootpath
 
 ```
 var MuraCaaSConfig={
-		siteid:'caas',
-		rootpath:'http://caas.mura.local:8080',
-		CaaSContainerSelector:'body'
-	};
+	siteid:'caas',
+	rootpath:'http://caas.mura.local:8080',
+	CaaSContainerSelector:'body'
+};
 ```
 
 In your site's settings, set the following attributes
