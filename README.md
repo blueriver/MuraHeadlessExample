@@ -10,10 +10,10 @@ set your site's contentRenderer.cfc's this.hashURLs=true;
 Edit the js/app.js to use your site's siteID and rootpath
 
 ```
-var MuraCaaSConfig={
-	siteid:'caas',
-	rootpath:'http://caas.mura.local:8080',
-	CaaSContainerSelector:'body'
+var MuraHeadlessConfig={
+	siteid:'headless',
+	rootpath:'http://headless.mura.local:8080',
+	containerSelector:'body'
 };
 ```
 

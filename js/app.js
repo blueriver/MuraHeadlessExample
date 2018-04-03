@@ -1,11 +1,11 @@
 (function(){
-	var MuraCaaSConfig={
-		siteid:'caas',
-		rootpath:'http://caas.mura.local:8080',
-		CaaSContainerSelector:'body'
+	var MuraHeadlessConfig={
+		siteid:'headless',
+		rootpath:'http://headless.mura.local:8080',
+		containerSelector:'body'
 	};
 
-	Mura.init(MuraCaaSConfig);
+	Mura.init(MuraHeadlessConfig);
 
 	Mura(function(){
 		var templates={};
@@ -51,7 +51,7 @@
 			return new Promise(
 				function(resolve, reject){
 					function applyTemplate(resp){
-						Mura(Mura.CaaSContainerSelector).html(resp);
+						Mura(Mura.containerSelector).html(resp);
 
 						buildNav(
 							Mura('.mura-primary-nav'),
