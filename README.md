@@ -31,3 +31,6 @@ In your site's settings, set the following attributes
 Since Mura calendars uses fullcalendar.js you'll need to also include jQuery if needed.
 
 If you run into CORS errors including from from the resource domain you will need to add Access-Control-Allow-Origin header to your Mura instances web server
+
+# License
+Apache License, Version 2.0
