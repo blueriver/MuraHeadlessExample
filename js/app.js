@@ -26,8 +26,8 @@
 			.where()
 			.prop('parentid').isEQ(parentid)
 			.getQuery()
-			.then((collection) => {
-				collection.forEach((item) => {
+			.then(collection=>{
+				collection.forEach(item=>{
 						container.append('<li><a href="' + item.get('url') + '">' + item.get('menutitle') + '</a></li>');
 				});
 			})
@@ -35,13 +35,13 @@
 
 		function renderNav(container,collection){
 			container.html('');
-			collection.forEach((item) => {
+			collection.forEach(item=>{
 				container.append('<li><a href="' + item.get('url') + '">' + item.get('menutitle') + '</a></li>');
 			});
 		}
 
 		function buildCrumbs(content){
-			content.get('crumbs').then((collection) => {
+			content.get('crumbs').then(collection=>{
 			collection.get('items').reverse()
 			renderNav( Mura('.mura-crumb-nav'),collection);
 			})
@@ -49,7 +49,7 @@
 
 		function renderTemplate(template){
 			return new Promise(
-				(resolve, reject) => {
+				(resolve, reject)=>{
 					function applyTemplate(resp){
 						Mura(Mura.containerSelector).html(resp);
 
@@ -62,7 +62,7 @@
 					}
 
 					if(typeof templates[template] == 'undefined'){
-						Mura.get('./templates/' + template + '.html').then((resp) => {
+						Mura.get('./templates/' + template + '.html').then(resp=>{
 							templates[template]=resp;
 							applyTemplate(templates[template]);
 						});
@@ -79,7 +79,7 @@
 			Mura.renderFilename(
 				hash.split('#')[1],
 				Mura.getQueryStringParams()
-			).then((content) => {
+			).then(content=>{
 
 				renderTemplate(content.get('template')).then(function(){
 
@@ -88,8 +88,8 @@
 
 					Mura.extend(Mura,content.get('config'));
 
-					Mura('.mura-region-container').each(function(){
-						var item=Mura(this);
+					Mura('.mura-region-container').each(item=>{
+						var item=Mura(item);
 						item.html(
 							content.renderDisplayRegion(
 								item.data('region')
