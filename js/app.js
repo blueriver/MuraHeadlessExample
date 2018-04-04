@@ -1,5 +1,5 @@
 (function(){
-	var MuraHeadlessConfig={
+	const MuraHeadlessConfig={
 		siteid:'headless',
 		rootpath:'http://headless.mura.local:8080',
 		containerSelector:'body'
@@ -7,8 +7,8 @@
 
 	Mura.init(MuraHeadlessConfig);
 
-	Mura(function(){
-		var templates={};
+	Mura(()=>{
+		let templates={};
 
 		Mura.loader()
 			.loadcss(Mura.endpoint + '/core/modules/v1/core_assets/css/mura.7.1.min.css')
