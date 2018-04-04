@@ -10,8 +10,8 @@
 		let templates={};
 
 		Mura.loader()
-			.loadcss(Mura.endpoint + '/core/modules/v1/core_assets/css/mura.7.1.min.css')
-			.loadcss(Mura.endpoint + '/core/modules/v1/core_assets/css/mura.7.1.skin.css');
+			.loadcss(Mura.rootpath + '/core/modules/v1/core_assets/css/mura.7.1.min.css')
+			.loadcss(Mura.rootpath + '/core/modules/v1/core_assets/css/mura.7.1.skin.css');
 
 		function buildNav(container,parentid){
 
