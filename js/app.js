@@ -1,11 +1,10 @@
 (function(){
-	const MuraHeadlessConfig={
+	
+	Mura.init({
 		siteid:'headless',
 		rootpath:'http://headless.mura.local:8080',
 		containerSelector:'body'
-	};
-
-	Mura.init(MuraHeadlessConfig);
+	});
 
 	Mura(()=>{
 		let templates={};

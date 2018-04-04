@@ -10,11 +10,11 @@ set your site's contentRenderer.cfc's this.hashURLs=true;
 Edit the js/app.js to use your site's siteID and rootpath
 
 ```
-const MuraHeadlessConfig={
+Mura.init({
 	siteid:'headless',
 	rootpath:'http://headless.mura.local:8080',
 	containerSelector:'body'
-};
+});
 ```
 
 In your site's settings, set the following attributes
