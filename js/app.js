@@ -87,7 +87,7 @@
 						item.html(content.renderDisplayRegion(item.data('region')));
 					});
 
-					if(content.hasParent()&& content.get('type') != 'Folder' && content.get('type') != 'Calendar'){
+					if(content.hasParent() && content.get('type') != 'Folder' && content.get('type') != 'Calendar'){
 						buildNav(Mura('.mura-child-nav'),content.get('contentid'));
 					} else {
 						Mura('.mura-child-nav').html('');
