@@ -1,5 +1,5 @@
 (function(){
-	
+
 	Mura.init({
 		siteid:'headless',
 		rootpath:'http://headless.mura.local:8080',
@@ -18,7 +18,7 @@
 			container.html('');
 
 			if(parentid=='00000000000000000000000000000000001'){
-			container.html('<li><a href="./#">Home</a></li>');
+				container.html('<li><a href="./#">Home</a></li>');
 			}
 
 			Mura.getFeed('content')
@@ -41,7 +41,7 @@
 
 		function buildCrumbs(content){
 			content.get('crumbs').then(collection=>{
-			collection.get('items').reverse()
+			collection.get('items').reverse();
 			renderNav( Mura('.mura-crumb-nav'),collection);
 			})
 		}
@@ -51,12 +51,7 @@
 				(resolve, reject)=>{
 					function applyTemplate(resp){
 						Mura(Mura.containerSelector).html(resp);
-
-						buildNav(
-							Mura('.mura-primary-nav'),
-							'00000000000000000000000000000000001'
-						);
-
+						buildNav(Mura('.mura-primary-nav'),'00000000000000000000000000000000001');
 						resolve();
 					}
 
@@ -80,7 +75,7 @@
 				Mura.getQueryStringParams()
 			).then(content=>{
 
-				renderTemplate(content.get('template')).then(function(){
+				renderTemplate(content.get('template')).then(()=>{
 
 					Mura('.mura-content').html(content.get('body'));
 					Mura('.mura-html-queues').html(content.get('htmlheadqueue') + content.get('htmlfootqueue'));
@@ -89,20 +84,11 @@
 
 					Mura('.mura-region-container').each(item=>{
 						var item=Mura(item);
-						item.html(
-							content.renderDisplayRegion(
-								item.data('region')
-							)
-						);
-					})
+						item.html(content.renderDisplayRegion(item.data('region')));
+					});
 
-					if(content.hasParent()
-						&& content.get('type') != 'Folder'
-						&& content.get('type') != 'Calendar'){
-						buildNav(
-							Mura('.mura-child-nav'),
-							content.get('contentid')
-						);
+					if(content.hasParent()&& content.get('type') != 'Folder' && content.get('type') != 'Calendar'){
+						buildNav(Mura('.mura-child-nav'),content.get('contentid'));
 					} else {
 						Mura('.mura-child-nav').html('');
 					}
