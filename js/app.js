@@ -29,7 +29,7 @@
 				collection.forEach(item=>{
 						container.append('<li><a href="' + item.get('url') + '">' + item.get('menutitle') + '</a></li>');
 				});
-			})
+			});
 		}
 
 		function renderNav(container,collection){
@@ -41,27 +41,27 @@
 
 		function buildCrumbs(content){
 			content.get('crumbs').then(collection=>{
-			collection.get('items').reverse();
-			renderNav( Mura('.mura-crumb-nav'),collection);
-			})
+				collection.get('items').reverse();
+				renderNav( Mura('.mura-crumb-nav'),collection);
+			});
+		}
+
+		function applyTemplate(template,resolve){
+			Mura(Mura.containerSelector).html(template);
+			buildNav(Mura('.mura-primary-nav'),'00000000000000000000000000000000001');
+			resolve();
 		}
 
 		function renderTemplate(template){
 			return new Promise(
 				(resolve, reject)=>{
-					function applyTemplate(resp){
-						Mura(Mura.containerSelector).html(resp);
-						buildNav(Mura('.mura-primary-nav'),'00000000000000000000000000000000001');
-						resolve();
-					}
-
 					if(typeof templates[template] == 'undefined'){
 						Mura.get('./templates/' + template + '.html').then(resp=>{
 							templates[template]=resp;
-							applyTemplate(templates[template]);
+							applyTemplate(templates[template],resolve);
 						});
 					} else {
-						applyTemplate(templates[template]);
+						applyTemplate(templates[template],resolve);
 					}
 				}
 			);
