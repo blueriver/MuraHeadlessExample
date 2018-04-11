@@ -55,6 +55,7 @@
 		function renderTemplate(template){
 			return new Promise(
 				(resolve, reject)=>{
+					template=template.split('.')[0];
 					if(typeof templates[template] == 'undefined'){
 						Mura.get('./templates/' + template + '.html').then(resp=>{
 							templates[template]=resp;
